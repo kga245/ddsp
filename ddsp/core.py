@@ -18,7 +18,7 @@ from collections import abc
 import copy
 from typing import Any, Dict, Optional, Sequence, Text, TypeVar
 
-import gin
+import gin.config as gin
 import numpy as np
 from scipy import fftpack
 import tensorflow.compat.v2 as tf

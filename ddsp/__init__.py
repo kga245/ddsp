@@ -16,12 +16,13 @@
 
 # Module imports.
 from ddsp import core
-from ddsp import dags
-from ddsp import effects
-from ddsp import losses
-from ddsp import processors
-from ddsp import spectral_ops
-from ddsp import synths
+# Temporarily commenting out imports that require crepe/hmmlearn
+# from ddsp import dags
+# from ddsp import effects
+# from ddsp import losses
+# from ddsp import processors
+# from ddsp import spectral_ops
+# from ddsp import synths
 
 # Version number.
 from ddsp.version import __version__
