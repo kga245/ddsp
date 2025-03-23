@@ -32,8 +32,6 @@ env/
 *.swo
 .DS_Store
 
-# Cursor specific
-.cursor/
 
 # Jupyter Notebook
 .ipynb_checkpoints

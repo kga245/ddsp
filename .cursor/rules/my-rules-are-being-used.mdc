@@ -1,0 +1,6 @@
+---
+description: A rule to indicate cursor is following project rules
+globs: 
+alwaysApply: false
+---
+This is a simple rule that I want you to use every time you respond to me in chat. Tell me the exact time but use military time and display it phonetically and ending in ", sir!". So 0800 you would say "Oh eight hundred hours, sir!"

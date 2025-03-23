@@ -1,0 +1,69 @@
+---
+description: DDSP Output Creation Guidelines
+globs: 
+alwaysApply: false
+---
+# DDSP Output Creation Guidelines
+
+## 1. Tensor Management
+- All tensors must have explicitly documented shapes in comments
+- Audio inputs to `frequency_filter` must be shape [batch, samples]
+- Frequency envelopes must be shape [batch, time, channels]
+- Document broadcasting behavior in comments when using multiple tensors
+- Use `tf.reshape()` to ensure correct dimensions before processing
+
+## 2. Memory Management
+- Break down complex operations into summed smaller operations
+- Avoid tensor operations that create large intermediate results
+- Generate harmonics iteratively rather than through broadcasting
+- Test memory-intensive operations with small values first
+- Use `tf.reduce_max()` and similar operations sparingly
+
+## 3. Audio Processing
+- Normalize audio before saving (usually to [-1, 1] range)
+- Generate separate spectrograms for visual confirmation
+- Include clear before/after examples for effects
+- Make audio transformations obvious and dramatic
+- Test with simple inputs before adding complexity
+
+## 4. Directory Structure
+```
+tutorials/01_core_functions/
+├── outputs/
+│   ├── filters/
+│   │   ├── noise/      # Noise-based demonstrations
+│   │   └── musical/    # Musical demonstrations
+│   ├── oscillators/
+│   └── delays/
+```
+
+## 5. File Naming
+- Use descriptive prefixes for demo type (e.g., `basic_`, `timevarying_`)
+- Include parameter variations in filename (e.g., `_fast`, `_deep`)
+- Use consistent suffixes (`_original`, `_filtered`)
+- Follow pattern: `<demo_type>_<variation>_<suffix>.<ext>`
+
+## 6. Documentation
+Each demo function must include:
+- Clear docstring explaining purpose and expected output
+- Comments for each major processing step
+- Description of audible changes in each variation
+- Parameter explanations for filter shapes/responses
+- Visual guide to interpreting spectrograms
+
+## 7. Demo Structure
+Each demo should:
+1. Print clear section header
+2. Generate/load source audio
+3. Apply processing
+4. Save original and processed audio
+5. Generate and save spectrograms
+6. Plot and save relevant filter responses
+7. Use consistent output paths and naming
+
+## 8. Quality Control
+- Verify audio output is clearly distinguishable from input
+- Ensure spectrograms match expected frequency response
+- Test with multiple parameter variations
+- Keep demo length reasonable (usually 4-5 seconds)
+- Include progress messages for long operations
